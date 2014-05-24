@@ -1,0 +1,23 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+#log files
+libpeerconnection.log
+
+# Zip files
+*.zip
+
+# third party libraries
+node_modules
+bower_components
+
+# grunt tmp
+_tmp

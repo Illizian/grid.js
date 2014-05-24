@@ -1,0 +1,26 @@
+{
+  "name": "grid.js",
+  "version": "0.1.0",
+  "authors": [
+    "Alex (illizian) <alex@alexscotton.com>"
+  ],
+  "description": "A simple jQuery library for generating responsive grids with drag & drop widgets",
+  "main": "dist/grid.min.js",
+  "keywords": [
+    "jquery",
+    "grid",
+    "dashboard"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Illizian/grid.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "~2.4.1"
+  }
+}
