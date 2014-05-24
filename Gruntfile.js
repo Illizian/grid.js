@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          yuicompress: true
+          cleancss: true,
         },
         files: {
           'dist/css/style.min.css': [ 'src/less/main.less' ]
