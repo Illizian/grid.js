@@ -1,12 +1,11 @@
-/*! grid.js - v0.1.0 - 2014-05-24
+/*! grid.js - v0.1.1 - 2014-05-24
 Illizian (alex@alexscotton.com)
 * https://github.com/Illizian/grid.js
  Licensed MIT */
 
-var debug = true;
-
+var debug = false;
 var logger = function (message) {
-	if(debug) console.log(message);
+	if(!_.isUndefined(debug) && debug) console.log(message);
 };
 /**
  * The Grid Class

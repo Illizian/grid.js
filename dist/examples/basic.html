@@ -3,8 +3,6 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="/../css/style.min.css">
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js"></script>
-		<script src="/../grid.with.libs.js"></script>
 	</head>
 	<body>
 		<ul id="grid-container">
@@ -70,9 +68,10 @@
 			</li>
 		</ul>
 
+		<script src="/../grid.with.libs.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				console.log('Started');
+				console.log('Grid Started');
 
 				grid = new Grid();
 				grid.init();
