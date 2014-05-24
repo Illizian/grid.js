@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Grid.js by Illizian</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Grid.js</h1>
+        <h2>A simple jQuery library for generating responsive grids with drag &amp; drop widgets</h2>
+        <a href="https://github.com/Illizian/grid.js" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a name="a-responsive-drag--drop-widget-dashboard" class="anchor" href="#a-responsive-drag--drop-widget-dashboard"><span class="octicon octicon-link"></span></a>A Responsive Drag &amp; Drop Widget Dashboard</h1>
+
+<h2>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p>I've used <a href="http://gridster.net/">gridster.js</a> for awhile but needed a lightweight responsive solution for my latest project - so here it is.</p>
+
+<h2>
+<a name="is-it-ready" class="anchor" href="#is-it-ready"><span class="octicon octicon-link"></span></a>Is it ready?</h2>
+
+<p><em>Nearly!</em> Check the issue tracker for my todo list :P (Feel free to tackle any and send me a PR).</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>If you use <code>dist/grid.with.libs.js</code> this includes dependancies (jQuery &amp; lodash) otherwise to use <code>dist/grid.js</code> you will need to ensure you've included these already.</p>
+
+<p>Then all you need to do, is add the grid and widget markup to your DOM:</p>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">"grid-container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"widget"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"widget-body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Widget #1<span class="nt">&lt;/h1&gt;</span>
+            <span class="nt">&lt;p&gt;</span>This is a widget<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+
+<p>and then create your new grid.js class:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Grid</span><span class="p">(</span><span class="s1">'#grid-container'</span><span class="p">);</span>
+    <span class="nx">grid</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<p><em>Currently adding the grid variable to the global scope is a requirement <a href="https://github.com/Illizian/grid.js/issues/2">To fix</a></em></p>
+
+<p>You may override any of the default options when calling Grid():</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">grid</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Grid</span><span class="p">(</span><span class="s1">'#grid-container'</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">margins</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="nx">min_rows</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">min_columns</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">max_columns</span><span class="o">:</span> <span class="mi">12</span><span class="p">,</span>
+        <span class="nx">min_col_width</span><span class="o">:</span> <span class="mi">140</span>
+    <span class="p">});</span>
+    <span class="nx">grid</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>This permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/Illizian/grid.js/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Illizian/grid.js/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/Illizian/grid.js"></a> is maintained by <a href="https://github.com/Illizian">Illizian</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
