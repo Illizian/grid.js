@@ -1,4 +1,4 @@
-/*! grid.js - v0.0.1 - 2014-05-24
+/*! grid.js - v0.1.0 - 2014-05-24
 Illizian (alex@alexscotton.com)
 * https://github.com/Illizian/grid.js
  Licensed MIT */
@@ -29,6 +29,7 @@ var Grid = function(el, options) {
 	// Default options
 	this.options = {
 		margins: 10,
+		min_rows: 1,
 		min_columns: 1,
 		max_columns: 12,
 		min_col_width: 140
@@ -64,8 +65,6 @@ Grid.prototype.update = function(options) {
 	this.height = this.$el.height();
 	logger('Grid height: '+ this.height +' width: '+ this.width);
 
-	// Clear the current cells
-	this.cells = [];
 	// Generate new cells
 	this.generateCells();
 	// And assign widgets to grid again
@@ -86,12 +85,15 @@ Grid.prototype.generateCells = function() {
 		columns--;
 		width = Math.floor((this.width-this.options.margins) / columns);
 	}
-
+	var min_rows = Math.ceil(widgets/columns);
+	min_rows = ((min_rows >= this.options.min_rows) ? min_rows : this.options.min_rows);
 	// Set dashboard props to "best fit"
-	this.rows			= Math.ceil(widgets/columns);
+	this.rows			= min_rows;
 	this.columns		= columns;
 	this.cells			= [];
 	this.column_width	= width;
+
+	logger('Grid Properties: '+ this.rows +'rows X '+ this.columns +'columns = '+ this.cells +'cells @ '+ this.column_width +'px width');
 
 	// Set element height to the required height for the grid
 	this.$el.height((this.rows*this.column_width)+this.options.margins);
