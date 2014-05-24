@@ -1,6 +1,6 @@
 {
   "name": "grid.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A simple jQuery library for generating responsive grids with drag & drop widgets",
   "main": "dist/grid.min.js",
   "scripts": {
